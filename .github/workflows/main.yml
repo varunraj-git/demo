@@ -43,7 +43,9 @@ jobs:
       
       # Runs a single command using the runners shell
       - name: build
-        run: mvn -B -Drevision=${{steps.bump.outputs.new_tag}} package
+        run: |
+          mvn versions:set -DnewVersion=${{steps.bump.outputs.new_tag}}-SNAPSHOT
+          mvn -B package
         
       - name: publish package
         run: mvn deploy
