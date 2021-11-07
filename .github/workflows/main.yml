@@ -32,7 +32,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
-          DRY_RUN: true
+          DRY_RUN: false
           DEFAULT_BUMPS: minor
           
       - name: Setup for JDK 11
