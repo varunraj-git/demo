@@ -32,7 +32,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
-          DRY_RUN: false
+          DRY_RUN: true
           DEFAULT_BUMPS: minor
           
       - name: Setup for JDK 11
@@ -59,6 +59,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
          args: ${{steps.bump.outputs.new_tag}}
+      - name: Create tag version
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMPS: minor
   
       # Runs a single command using the runners shell
 #       - name: Run a one-line script
