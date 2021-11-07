@@ -51,6 +51,13 @@ jobs:
         run: mvn deploy
         env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         
+      - name: Create a Release
+        uses: elgohr/Github-Release-Action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+         args: ${{steps.bump.outputs.new_tag}}
   
       # Runs a single command using the runners shell
 #       - name: Run a one-line script
