@@ -48,7 +48,7 @@ jobs:
       - name: publish package
         run: mvn deploy
         env:
-         GITHUB_TOKEN: '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'
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
       # Runs a single command using the runners shell
 #       - name: Run a one-line script
