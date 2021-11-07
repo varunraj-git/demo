@@ -46,7 +46,9 @@ jobs:
         run: mvn -B -Drevision=${{steps.bump.outputs.new_tag}} package
         
       - name: publish package
-        run: mvn deploy
+        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+        env:
+         GITHUB_TOKEN: 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
   
       # Runs a single command using the runners shell
 #       - name: Run a one-line script
