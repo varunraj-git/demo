@@ -65,7 +65,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CUSTOM_TAG: ${{steps.bump.outputs.new_tag}}
   
-      # Runs a single command using the runners shell
+      # Runs a single  command using the runners shell
 #       - name: Run a one-line script
 #         run: echo Hello, world!
 
